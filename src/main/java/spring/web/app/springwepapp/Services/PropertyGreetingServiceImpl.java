@@ -1,0 +1,13 @@
+package spring.web.app.springwepapp.Services;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
+
+@Service
+public class PropertyGreetingServiceImpl implements GreetingService {
+
+    @Override
+    public String SayGreeting() {
+        return "Hello Eithiri Htun: For Property";
+    }
+}
