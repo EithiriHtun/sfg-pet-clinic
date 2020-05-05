@@ -5,5 +5,6 @@ import spring.web.app.springwepapp.Model.Owner;
 
 public interface OwnerRepository extends CrudRepository<Owner, Long> {
 
+    Owner findByLastName(String lastName);
 
 }
