@@ -1,6 +1,7 @@
 package spring.web.app.springwepapp.Services.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import spring.web.app.springwepapp.Model.Owner;
 import spring.web.app.springwepapp.Model.Pet;
@@ -11,6 +12,7 @@ import spring.web.app.springwepapp.Services.PetTypeService;
 import java.util.Set;
 
 @Service
+@Profile({"default","Map"})
 public class OwnerMapService extends AbstractMapService<Owner,Long> implements OwnerService {
 
     private final PetTypeService petTypeService;

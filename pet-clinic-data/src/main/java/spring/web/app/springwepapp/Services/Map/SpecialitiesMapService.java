@@ -1,5 +1,6 @@
 package spring.web.app.springwepapp.Services.Map;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import spring.web.app.springwepapp.Model.Speciality;
 import spring.web.app.springwepapp.Services.SpecialitiesService;
@@ -7,6 +8,7 @@ import spring.web.app.springwepapp.Services.SpecialitiesService;
 import java.util.Set;
 
 @Service
+@Profile({"default","Map"})
 public class SpecialitiesMapService extends AbstractMapService<Speciality, Long> implements SpecialitiesService {
 
     @Override

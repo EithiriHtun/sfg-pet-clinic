@@ -15,15 +15,17 @@ public class DataLoader implements CommandLineRunner {
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialitiesService specialitiesService;
+    private final VisitService visitService;
 
 
     //@Service pr yin use tr..
     @Autowired
-    public DataLoader(OwnerService ownerservice, VetService vetService, PetTypeService petTypeService, SpecialitiesService specialitiesService){
+    public DataLoader(OwnerService ownerservice, VetService vetService, PetTypeService petTypeService, SpecialitiesService specialitiesService, VisitService visitService){
         this.ownerservice = ownerservice;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialitiesService = specialitiesService;
+        this.visitService = visitService;
 
         //@Service ma pr yin use tr..
         /*ownerservice = new OwnerMapService();
@@ -108,6 +110,17 @@ public class DataLoader implements CommandLineRunner {
         ownerservice.save(owner2);
 
         System.out.println("Load Owners.....");
+
+        Visit catvisit = new Visit();
+        catvisit.setPet(fionasCat);
+        catvisit.setDate(LocalDate.now());
+        catvisit.setDescription("Sneezy Kitty");
+        catvisit.getPet().setId((long) 1);
+        catvisit.getPet().getOwner().setId((long) 1);
+
+        visitService.save(catvisit);
+
+        System.out.println("Load Visit.....");
 
         Vet vet1 = new Vet();
         vet1.setId(1L);

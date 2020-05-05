@@ -1,6 +1,7 @@
 package spring.web.app.springwepapp.Services.Map;
 
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import spring.web.app.springwepapp.Model.Speciality;
 import spring.web.app.springwepapp.Model.Vet;
@@ -10,6 +11,7 @@ import spring.web.app.springwepapp.Services.VetService;
 import java.util.Set;
 
 @Service
+@Profile({"default","Map"})
 public class VetMapService extends AbstractMapService<Vet,Long> implements VetService {
 
     private final SpecialitiesService specialitiesService;
