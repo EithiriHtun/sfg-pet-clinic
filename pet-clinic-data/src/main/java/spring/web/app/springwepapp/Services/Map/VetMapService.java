@@ -2,13 +2,22 @@ package spring.web.app.springwepapp.Services.Map;
 
 
 import org.springframework.stereotype.Service;
+import spring.web.app.springwepapp.Model.Speciality;
 import spring.web.app.springwepapp.Model.Vet;
+import spring.web.app.springwepapp.Services.SpecialitiesService;
 import spring.web.app.springwepapp.Services.VetService;
 
 import java.util.Set;
 
 @Service
 public class VetMapService extends AbstractMapService<Vet,Long> implements VetService {
+
+    private final SpecialitiesService specialitiesService;
+
+    public VetMapService(SpecialitiesService specialitiesService) {
+        this.specialitiesService = specialitiesService;
+    }
+
 
     @Override
     public Set<Vet> findAll() {
@@ -32,6 +41,16 @@ public class VetMapService extends AbstractMapService<Vet,Long> implements VetSe
 
     @Override
     public Vet save(Vet vet) {
+
+        if(vet.getSpecialities().size() > 0){
+            vet.getSpecialities().forEach(speciality ->{
+                if(speciality.getId() == null){
+                    Speciality savedSpeciality = specialitiesService.save(speciality);
+                    speciality.setId(savedSpeciality.getId());
+                }
+            });
+        }
+
         return super.save(vet.getId(),vet);
     }
 }
