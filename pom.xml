@@ -79,14 +79,14 @@
 						--illegal-access=permit
 					</argLine>
 				</configuration>
-				<!--<executions>
+				<executions>
 					<execution>
 						<goals>
 							<goal>integration-test</goal>
 							<goal>verify</goal>
 						</goals>
 					</execution>
-				</executions>-->
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
