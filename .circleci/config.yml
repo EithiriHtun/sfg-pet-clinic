@@ -19,6 +19,7 @@ jobs:
         environment:
             # Customize the JVM maximum heap limit
             MAVEN_OPTS: -Xmx3200m
+            #JAVA_HOME: /usr/lib/jvm/java-11-openjdk-amd64/
 
         steps:
         - checkout
@@ -31,7 +32,6 @@ jobs:
               - v1-dependencies-
 
         - run: mvn install -DskipTests
-
         - run: mvn dependency:go-offline
 
         - save_cache:
