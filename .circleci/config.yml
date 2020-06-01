@@ -33,7 +33,6 @@ jobs:
 
         - run: mvn install -DskipTests
         - run: mvn dependency:go-offline
-        - run: bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3
         - run: bin/rubocop || export SOME_TEST_FAILED=true
         - run: bin/rspec || export SOME_TEST_FAILED=true
 
